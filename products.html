@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products | MyShop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#facc15',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white">
+    <!-- ✅ Navbar -->
+    <header class="bg-black/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary">MyShop</div>
+            <nav class="hidden md:flex space-x-6 font-medium text-lg">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <a href="products.html" class="hover:text-primary">Products</a>
+                <a href="cart.html" class="hover:text-primary">Cart 🛒</a>
+                <a href="login.html" class="hover:text-primary">Login</a>
+            </nav>
+        </div>
+    </header>
+    <!-- ✅ Products Grid -->
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <h1 class="text-3xl font-bold mb-8 text-center">Our Products</h1>
+        <div id="products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- JS will inject products here -->
+        </div>
+    </main>
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: 'Cool T-Shirt',
+                price: 499,
+                image: 'https://picsum.photos/300/200',
+            },
+            {
+                id: 2,
+                name: 'Stylish Shoes',
+                price: 999,
+                image: 'https://picsum.photos/300/200',
+            },
+            {
+                id: 3,
+                name: 'Trendy Jacket',
+                price: 1499,
+                image: 'https://picsum.photos/300/200',
+            },
+        ];
+        const productContainer = document.getElementById('products');
+        // Render Products
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'bg-gray-900 rounded-xl p-4 shadow-md';
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
+                <p class="text-primary font-bold mb-3">₹${product.price}</p>
+                <button onclick="addToCart(${product.id})" class="bg-primary text-black px-4 py-2 rounded hover:bg-yellow-300 font-semibold">
+                    Add to Cart
+                </button>
+            `;
+            productContainer.appendChild(card);
+        });
+        // Add to Cart Function
+        function addToCart(id) {
+            const selectedProduct = products.find(p => p.id === id);
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...selectedProduct, qty: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${selectedProduct.name} added to cart!`);
+        }
+    </script>
+</body>
+</html>

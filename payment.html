@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment | MyShop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: '#facc15',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white">
+
+  <!-- Navbar -->
+  <header class="bg-black/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold text-primary">MyShop</div>
+      <nav class="hidden md:flex space-x-6 font-medium text-lg">
+        <a href="index.html" class="hover:text-primary">Home</a>
+        <a href="products.html" class="hover:text-primary">Products</a>
+        <a href="cart.html" class="hover:text-primary">Cart 🛒</a>
+        <a href="login.html" class="hover:text-primary">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Payment Section -->
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="text-3xl font-bold mb-10 text-center">Secure Payment</h1>
+
+    <div class="grid md:grid-cols-2 gap-8 bg-gray-900 p-6 rounded-xl">
+
+      <!-- Payment Form -->
+      <div>
+        <label class="block mb-4">
+          <span class="text-lg font-medium">Card Number</span>
+          <input type="text" placeholder="1234 5678 9012 3456"
+            class="w-full mt-2 p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" />
+        </label>
+
+        <div class="flex gap-4 mb-4">
+          <label class="w-1/2">
+            <span class="text-lg font-medium">Expiry</span>
+            <input type="text" placeholder="MM/YY"
+              class="w-full mt-2 p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" />
+          </label>
+          <label class="w-1/2">
+            <span class="text-lg font-medium">CVV</span>
+            <input type="text" placeholder="123"
+              class="w-full mt-2 p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" />
+          </label>
+        </div>
+
+        <label class="block mb-6">
+          <span class="text-lg font-medium">Cardholder Name</span>
+          <input type="text" placeholder="Your Name"
+            class="w-full mt-2 p-3 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary" />
+        </label>
+
+        <a href="thankyou.html"
+          class="block w-full text-center bg-primary text-black font-semibold px-6 py-3 rounded-lg hover:bg-yellow-300 transition">
+          Pay Now
+        </a>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="bg-gray-800 p-6 rounded-xl">
+        <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+        <ul class="text-gray-300 mb-6 space-y-2">
+          <li>Cool T-Shirt — ₹499</li>
+          <li>Stylish Shoes — ₹999 x2</li>
+        </ul>
+        <hr class="border-gray-600 mb-4" />
+        <p class="text-lg font-semibold">Total: <span class="text-primary">₹2,497</span></p>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

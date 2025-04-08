@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyShop | Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: '#facc15',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white">
+
+  <!-- Navbar (same as home) -->
+  <header class="bg-black/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl md:text-3xl font-bold text-primary">MyShop</div>
+      <nav class="hidden md:flex space-x-6 font-medium text-lg">
+        <a href="index.html" class="hover:text-primary">Home</a>
+        <a href="products.html" class="hover:text-primary">Products</a>
+        <a href="cart.html" class="hover:text-primary">Cart 🛒</a>
+        <a href="login.html" class="hover:text-primary">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Cart Page -->
+  <main class="max-w-6xl mx-auto px-6 py-16">
+    <h1 class="text-3xl font-bold mb-8 text-center md:text-left">Your Cart</h1>
+
+    <!-- Cart Items -->
+    <div class="space-y-6">
+      <!-- Cart Item 1 -->
+      <div class="bg-gray-900 rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img src="https://via.placeholder.com/80x80.png?text=Item" class="rounded-lg" />
+          <div>
+            <h2 class="text-lg font-semibold">Cool T-Shirt</h2>
+            <p class="text-gray-400">₹499</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 mt-4 md:mt-0">
+          <input type="number" value="1" min="1" class="w-16 px-2 py-1 rounded-md bg-gray-800 text-white" />
+          <button class="text-red-400 hover:text-red-600">Remove</button>
+        </div>
+      </div>
+
+      <!-- Cart Item 2 -->
+      <div class="bg-gray-900 rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img src="https://via.placeholder.com/80x80.png?text=Item" class="rounded-lg" />
+          <div>
+            <h2 class="text-lg font-semibold">Stylish Shoes</h2>
+            <p class="text-gray-400">₹999</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 mt-4 md:mt-0">
+          <input type="number" value="2" min="1" class="w-16 px-2 py-1 rounded-md bg-gray-800 text-white" />
+          <button class="text-red-400 hover:text-red-600">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total + Checkout -->
+    <div class="mt-10 bg-gray-900 p-6 rounded-xl text-center md:text-right">
+      <p class="text-xl font-semibold mb-4">Total: <span class="text-primary">₹2,497</span></p>
+      <a href="payment.html" class="bg-primary text-black font-semibold px-6 py-3 rounded-lg hover:bg-yellow-300 transition">Checkout</a>
+    </div>
+  </main>
+
+</body>
+</html>
